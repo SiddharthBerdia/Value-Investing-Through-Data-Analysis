@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Value Investing Through Data Science</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f6f8; }
+        header { background-color: #0b3d91; color: white; padding: 1rem; text-align: center; }
+        nav { display: flex; justify-content: center; gap: 20px; margin-top: 10px; }
+        nav a { text-decoration: none; color: #0b3d91; font-weight: bold; }
+        .container { padding: 2rem; }
+        .card { background: white; padding: 2rem; margin: 2rem auto; width: 90%; max-width: 500px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .form-group { margin-bottom: 1rem; }
+        label { display: block; margin-bottom: 0.5rem; }
+        input { width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 5px; }
+        button { width: 100%; padding: 1rem; background-color: #0b3d91; color: white; border: none; border-radius: 5px; font-size: 1rem; cursor: pointer; }
+        button:hover { background-color: #06296b; }
+        footer { text-align: center; padding: 1rem; background-color: #eee; margin-top: 2rem; }
+    </style>
+</head>
+<body>
+
+
+Edited
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Value Investing Through Data Science</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f0f2f5; color: #333; }
+        header { background: linear-gradient(90deg, #0b3d91, #1a73e8); color: white; padding: 1.5rem; text-align: center; }
+        nav { display: flex; justify-content: center; gap: 30px; margin-top: 10px; }
+        nav a { text-decoration: none; color: white; font-weight: bold; font-size: 1.1rem; }
+        nav a:hover { text-decoration: underline; }
+        .container { padding: 2rem; }
+        .card { background: white; padding: 2rem; margin: 2rem auto; width: 90%; max-width: 600px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        .form-group { margin-bottom: 1.5rem; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+        input { width: 100%; padding: 0.9rem; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem; }
+        button { width: 100%; padding: 1rem; background: linear-gradient(90deg, #0b3d91, #1a73e8); color: white; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: background 0.3s; }
+        button:hover { background: linear-gradient(90deg, #1a73e8, #0b3d91); }
+        footer { text-align: center; padding: 1rem; background-color: #e0e0e0; margin-top: 2rem; font-size: 0.9rem; }
+        #dashboard-data { margin-top: 1rem; }
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        th, td { padding: 12px; border-bottom: 1px solid #ddd; text-align: left; }
+        th { background-color: #0b3d91; color: white; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Value Investing with Data Science</h1>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#login">Login</a>
+        <a href="#dashboard">Dashboard</a>
+    </nav>
+</header>
+
+<div id="home" class="container">
+    <div class="card">
+        <h2>Welcome to Smart Value Investing</h2>
+        <p>Use AI-driven insights to uncover hidden gems in the stock market. Our model analyzes key fundamentals like PE, PB, PS ratios, EV/EBITDA, and EV/GP to create the smartest investment portfolio for you. We introduce a new factor called <strong>Robust Value (RV)</strong> Score — a composite of multiple valuation metrics to find truly undervalued companies. Start your journey to smarter investing today!</p>
+    </div>
+</div>
+
+<div id="login" class="container">
+    <div class="card">
+        <h2>Login / Sign Up</h2>
+        <form onsubmit="loginUser(event)">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit">Access Dashboard</button>
+        </form>
+    </div>
+</div>
+
+<div id="dashboard" class="container" style="display:none">
+    <div class="card">
+        <h2>Investor Dashboard</h2>
+        <p>Welcome, <span id="userEmail"></span>!</p>
+        <div id="dashboard-data">
+            <h3>Top 50 Value Stocks Based on RV Score</h3>
+            <table>
+                <thead>
+                    <tr><th>Stock</th><th>RV Score</th><th>Share Price</th></tr>
+                </thead>
+                <tbody id="stockTableBody">
+                    <!-- Dynamic rows inserted here -->
+                </tbody>
+            </table>
+            <p style="margin-top:1rem;font-size:0.9rem;color:gray;">Note: RV (Robust Value) Score combines PE, PB, PS ratios, EV/EBITDA, and EV/GP to evaluate true value opportunities.</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Value Investing Project | Powered by Data Science and RV Analysis</p>
+</footer>
+
+<script>
+    function loginUser(event) {
+        event.preventDefault();
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        if(email && password) {
+            document.getElementById('login').style.display = 'none';
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('dashboard').style.display = 'block';
+            document.getElementById('userEmail').innerText = email;
+            loadSampleData();
+        } else {
+            alert('Please fill all fields');
+        }
+    }
+
+    function loadSampleData() {
+        const sampleStocks = [
+            { stock: 'ABC Ltd', rv_score: '0.12', price: '$120' },
+            { stock: 'XYZ Corp', rv_score: '0.15', price: '$98' },
+            { stock: 'MNO Industries', rv_score: '0.18', price: '$230' }
+        ];
+
+        const tbody = document.getElementById('stockTableBody');
+        tbody.innerHTML = '';
+
+        sampleStocks.forEach(s => {
+            const row = `<tr><td>${s.stock}</td><td>${s.rv_score}</td><td>${s.price}</td></tr>`;
+            tbody.innerHTML += row;
+        });
+    }
+</script>
+
+</body>
+</html>
+
+
+<header>
+    <h1>Value Investing with Data Science</h1>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#login">Login</a>
+        <a href="#dashboard">Dashboard</a>
+    </nav>
+</header>
+
+<div id="home" class="container">
+    <div class="card">
+        <h2>Welcome!</h2>
+        <p>Discover undervalued stocks using data science models based on robust fundamentals like PE, PB, PS ratios, EV/EBITDA, EV/GP and Robust Value (RV). Sign up to explore top value investing opportunities!</p>
+    </div>
+</div>
+
+<div id="login" class="container">
+    <div class="card">
+        <h2>Login / Sign Up</h2>
+        <form onsubmit="loginUser(event)">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</div>
+
+<div id="dashboard" class="container" style="display:none">
+    <div class="card">
+        <h2>Your Dashboard</h2>
+        <p>Welcome, <span id="userEmail"></span>!</p>
+        <p>Attach your backend here to display top 50 stocks, RV scores, portfolio returns, and graphs dynamically.</p>
+        <p>[Insert dynamic charts/tables from backend]</p>
+    </div>
+</div>
+
+<footer>
+    <p>Created for the Value Investing Project (2025)</p>
+</footer>
+
+<script>
+    function loginUser(event) {
+        event.preventDefault();
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        // Simple front-end validation (simulate login)
+        if(email && password) {
+            document.getElementById('login').style.display = 'none';
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('dashboard').style.display = 'block';
+            document.getElementById('userEmail').innerText = email;
+        } else {
+            alert('Please fill all fields');
+        }
+    }
+</script>
+
+</body>
+</html>
