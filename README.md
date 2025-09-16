@@ -1,5 +1,5 @@
 # Value-Investing-Through-Data-Analysis
-A Python-based framework for applying value investing principles through data analysis and strategy backtesting. The project combines financial data, portfolio construction, and web visualization to help identify undervalued stocks and compare investment strategies.
+A Python-based framework for applying value investing principles through data analysis. The project combines financial data, portfolio construction, and web visualization to help identify undervalued stocks and compare investment strategies.
 
 Project Overview :-
 
